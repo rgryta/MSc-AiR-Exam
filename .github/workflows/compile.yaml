@@ -1,0 +1,25 @@
+name: Compile LaTeX
+on:
+  push:
+    branches: [ main ]  
+jobs:
+  make-document:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout the code
+          uses: actions/checkout@main
+        - name: Compile LaTeX document
+          uses: xu-cheng/latex-action@v2
+          with:
+            root_file: main.tex
+        - name: Move to output
+          run: |
+            mkdir output
+            cp ./main.pdf ./output/Exam.pdf
+          shell: bash
+        - name: Deploy on GH Pages
+          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          with:
+            branch: gh-pages
+            workspace: output
+            folder: ./output

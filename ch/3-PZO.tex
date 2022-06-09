@@ -1,0 +1,212 @@
+{\let\clearpage\relax\chapter{Przedmioty zaawansowane obieralne}}
+
+
+\section{MISK}
+\subsection{Przedstawić kategorie modeli systemów, omówić wybrane
+modele i metody ich opisu.}
+\textbf{Model} wyraża istotne cechy procesu, jest odbiciem rzeczywistości, ale nie jest sumą wiedzy o procesie, ani zbiorem wszystkich praw rządzących procesem. W technice model to imitacja lub reprezentacja rzeczywistego systemu.
+
+Model powinien reprezentować tylko tę część wiedzy, która jest istotna
+ze względu na przeznaczenie modelu.
+\\\\
+
+\textbf{Klasyfikacja modeli:}
+
+\begin{description}
+    \item[Reprezentacja modelu]\mbox{}
+    \begin{itemize}
+        \item fizyczne - Inny układ fizyczny, znacznie prostszy i dostępny do prowadzenia na nim obserwacji, którego właściwości mogą w danych warunkach, z dostatecznie dobrym przybliżeniem, reprezentować właściwości modelowanego systemu.
+        \item sformalizowane - Opisują zależności i zjawiska rzeczywiste przy użyciu równań lub wyrażeń logicznych.\\
+        Istotna cecha: odpowiedź modelu na powtarzane wielokrotnie wymuszenie jest taka sama (całkowite zdeterminowanie).
+        \item intuicyjne - Formułowane przez eksperta przy wykorzystaniu dostępnej wiedzy o systemie i jego myślowej dedukcji i oceny.\\
+        Zawierają sporą dozę niepewności.\\
+        Odpowiedź eksperta na to samo pytanie zadawane w różnym czasie może być różna.
+    \end{itemize}
+    \item[Szczegółowość przedstawienia struktury systemu]\mbox{}
+    \begin{itemize}
+        \item korelacyjne - Budowane na podstawie zaobserwowanych lub hipotetycznych korelacji między zjawiskami.\\
+        Interesuje nas powiązanie zjawisk, a nie to co jest przyczyną, a co skutkiem zachodzącego procesu.
+        \item przyczynowe - Podklasa modeli korelacyjnych. Interesuje nas jaki skutek wywołuje dane oddziaływanie na system.\\
+        Wymagania: wiedza o prawach, według których jedne zjawiska wywołują inne. W przypadku braku takiej wiedzy wykonanie czynnego eksperymentu identyfikacyjnego. Przykład: projektowanie układów sterowania.
+    \end{itemize}
+    \item[Uwzględnianie dynamiki]\mbox{}
+    \begin{itemize}
+        \item statyczne - Stosowane w zadaniach, w których problem dynamiki systemów nie jest rozważany (uwaga: system jest zawsze dynamiczny). Przykład: modele opisujące stany ustalone procesów dynamicznych.
+        \item dynamiczne - Opisują poza stanami ustalonymi również przebiegi przejściowe. Istota modelu dynamicznego: uwzględnianie możliwej zmienności stanu procesu. Przykład: stany ustalone nie występują w systemie lub są krótkotrwałe (np. przepływ w systemach wodnych).
+    \end{itemize}
+    \item[Reprezentację czasu]\mbox{}
+    \begin{itemize}
+        \item czas ciągły - Wartości zmiennych wejściowych v, wyjściowych y i stanu x w procesie dynamicznym są określone dla każdej chwili czasu t. Czas jest ciągły. Opis w przestrzeni stanów.
+        \item czas dyskretny - Wartości zmiennych wejściowych v, wyjściowych y i stanu x w procesie dynamicznym są wyznaczane tylko dla dyskretnych chwil $t =k \Delta t,\:k=0,1...$. Czas jest dyskretny.
+        \item zdarzenia dyskretne - Dyskretne zbiory wartości jakie mogą przyjmować zmienne wejściowe v, wyjściowe y, stanu x. Czas jest ciągły. Opis systemu i implementacja modelu:\mbox{}
+        \begin{itemize}
+            \item lista zdarzeń,
+            \item zdarzeniom są przypisane znaczniki czasu ( chwile wystąpienia)
+            \item zegar.
+        \end{itemize}
+    \end{itemize}
+    \item[Uwzględnianie niepewności]\mbox{}
+    \begin{itemize}
+        \item deterministyczne - Zależności funkcyjne, w których każdemu elementowi v zbioru wielkości wejściowych V przyporządkowany jest jednoznacznie określony element y zbioru wielkości wyjściowych Y.
+        \item probabilistyczne - Zależności korelacyjne, funkcje regresji, zależności określające związki zachodzące między rozkładami prawdopodobieństwa wielkości wejściowych i wyjściowych. Modele probabilistyczne wymagają wyrażenia w modelu cech probabilistycznych wyjścia modelu przez np. analityczne wyznaczenie jego wartości oczekiwanej, wariancji, funkcji autokorelacji itd.
+    \end{itemize}
+    \item[Sposób rozwiązywania:]\mbox{}
+    \begin{itemize}
+        \item analityczne - Modele opisane za pomocą jawnie wyrażonych równań, w przypadku których można przedstawić rozwiązanie w postaci jawnego wzoru (np. $y=2u$, gdzie $u$ oznacza zmienną niezależną).
+        \item numeryczne - Modele opisane za pomocą jawnie wyrażonych równań, w przypadku których nie można przedstawić rozwiązania w postaci jawnego wzoru. Wartości zmiennych zależnych są zazwyczaj określane za pomocą pewnego algorytmu (procedury numerycznej) i wyznaczane w komputerze.
+        \item symulacyjne - Modele uproszczone, stosowane w przypadku, gdy model sformalizowany jest zbyt złożony lub dysponujemy jedynie modelem intuicyjnym. Wyznaczenie związków między zmiennymi modelu jest możliwe jedynie na drodze eksperymentu symulacyjnego. Cecha charakterystyczna: zmienne niezależne - wejścia systemu, zmienne zależnie - wyjścia systemu.
+    \end{itemize}
+\end{description}
+
+\textbf{Opis modelu zdarzeń dyskretnych (symulacja):}
+\begin{itemize}
+    \item Uporządkowana lista zdarzeń zewnętrznych i wewnętrznych.
+    \item Globalny zegar w systemie.
+    \item Obsługa zdarzenia powoduje zmianę stanu systemu, usunięcie pewnych zdarzeń z listy i wprowadzenie nowych zdarzeń na listę.
+    \item Poszczególne zdarzenia są objęte relacjami zależności - dane zdarzenie musi być poprzedzone innym.
+    \item Zależność zdarzeń odzwierciedla naszą wiedzę o kolejności zjawisk zachodzących w symulowanym systemie fizycznym.
+    \item Zdarzeniom przypisywane są znaczniki czasowe określające chwile ich wystąpienia.
+    \item Zagwarantowanie zachowania związku przyczynowo-skutkowego.
+\end{itemize}
+
+Uzupełnieniem opisu matematycznego systemów są ich reprezentacje graficzne. Można wymienić tu trzy najbardziej popularne metody:
+\begin{itemize}
+    \item schematy blokowe (ang. block diagrams)
+    \item grafy przepływu sygnałów (ang. signal flow graphs)
+    \item grafy połączeń (ang. bond graphs)
+\end{itemize}
+Ukazują one w przejrzysty sposób poszczególne działania statyczne i dynamiczne. Są ściśle związane z programem na komputerze lub maszynie analogowej rozwiązującym model rozważanego systemu.
+
+\subsection{Omówić techniki symulacyjne: symulacja z czasem ciągłym,
+czasem dyskretnym i zdarzeń dyskretnych.} 
+
+\textbf{Symulacja} to metoda badania lub naśladowania rzeczywistego systemu przez prowadzenie eksperymentów z modelem tego systemu. 
+
+\textbf{Symulacja komputerowa} to eksperyment z modelem systemu wykonywany w komputerze.
+
+\begin{description}
+    \item[Czas ciągły]\mbox{}
+    \begin{itemize}
+        \item Czas jest ciągły.
+        \item Do opisu modelu stosuje się równania różniczkowe.
+        \item Mogą być symulowane na maszynach analogowych i cyfrowych (wymaga dyskretyzacji modeli ciągłych DESS przez sprowadzenie do postaci DTSS).
+        \item Zalety symulacji analogowej:\mbox{}
+        \begin{itemize}
+            \item Szybkość umożliwiająca pracę w czasie rzeczywistym.
+            \item Szybkość operacji ograniczana jedynie przez szerokość pasma w jakim pracowały aktywne elementy elektroniczne (wzmacniacze operacyjne).
+            \item Przetwarzanie równoległe: poszczególne operacje, takie jak sumowanie, mnożenie, całkowanie wykonywane przez oddzielne bloki obliczeniowe.
+        \end{itemize}
+        \item Wady symulacji analogowej:\mbox{}
+        \begin{itemize}
+            \item Kosztowny sprzęt dedykowany konkretnej aplikacji.
+            \item Trudności implementacyjne.
+            \item Niska dokładność i wiarygodność wyników.
+        \end{itemize}
+        \item Przykład: zbiornik retencyjny (równanie bilansu wody).
+    \end{itemize}
+    \item[Czas dyskretny]\mbox{}
+    \begin{itemize}
+        \item Czas jest dyskretny.
+        \item Do opisu modelu stosuje się równania różnicowe.
+        \item Mogą być symulowane tylko na maszynach cyfrowych.
+        \item Przykład: systemy sygnalizacji, systemy komputerowe.
+    \end{itemize}
+    \item[Zdarzenia dyskretne]\mbox{}
+    \begin{itemize}
+        \item Czas jest ciągły.
+        \item Do opisu modelu stosuje się równania różniczkowe i listy zdarzeń:\mbox{}
+        \begin{description}
+            \item[Zewnętrzne] - zdarzenie, które jest obserwowane w postaci zmiany wielkości wejściowych systemu - na zdarzenia zewnętrzne nie mamy wpływu, nie wiemy zazwyczaj a priori kiedy wystąpią.
+            \item[Wewnętrzne] - zdarzenie, które reprezentuje procesy przebiegające w systemie - znamy a priori czas wystąpienia zdarzeń wewnętrznych i możemy sporządzić listę takich zdarzeń.
+        \end{description}
+        \item Zmiany stanu spowodowane są przez zdarzenia zewnętrzne i wewnętrzne.
+        \item Zdarzenia nie muszą występować w regularnych odstępach czasu.
+        \item Dwa warianty:\mbox{}
+        \begin{description}
+            \item[Sterowana zdarzeniami] - chronologicznie symulowane są zdarzenia zachodzące w procesach fizycznych, a w każdej iteracji zegar globalny przyjmuje wartość odpowiadającą znacznikowi czasu wykonywanego zdarzenia.
+            \item[Sterowana zegarem] - po wykonaniu każdej iteracji, zegar zwiększa się o stałą wartość (jeden takt symulowanego czasu) i realizowane są kolejno wszystkie zdarzenia z odpowiadającym tej chwili znacznikiem czasu.
+        \end{description}
+        \item Przykład: linia montażowa, obsługa routera sieciowego.
+    \end{itemize}
+\end{description}
+
+\subsection{Omówić metody rozwiązywania zadań symulator-optymalizator.}
+
+Symulacja-optymalizacja (ang. simulation-optimization) to schemat
+wyznaczania optymalnych decyzji sterujących, w którym w każdym kroku tego procesu jakość decyzji oceniana jest na podstawie symulacji działania systemu.
+
+Sformułujmy zadanie minimalizacji rozwiązywane w układzie symulator-optymalizator:
+\begin{equation}
+    \label{eq:313-1}
+    \min_x [f(x) = J(x,S(x))],\;x\in D_x
+\end{equation}
+gdzie J jest wskaźnikiem oceniającym jakość decyzji na podstawie odpowiedzi
+symulatora y = S(x), a $D_x$ zbiorem dopuszczalnych rozwiązań.
+
+Oczywiste jest, że symulator fizycznego systemu powinien uwzględniać
+czynniki losowe, wpływające na jego działanie, tj. losowe zakłócenia związane z oddziaływaniem otoczenia oraz błędami pomiarowymi. Mogą wystąpić również zaburzenia spowodowane przez błędy w realizacji samego symulatora, np. kumulujące się błędy numeryczne, a nawet sytuacje, gdy dla pewnych wartości wejściowych symulatora nie można wyznaczyć wartości wyjściowych. Odpowiedzi symulatora będą zależeć od losowych zakłóceń, a więc y = $\tilde{S}(x,V)$, gdzie $\tilde{S}$ oznacza symulator uwzględniający czynniki losowe w rzeczywistym systemie, wektor V = [$v_1$,... ,$v_m$] reprezentuje skumulowane efekty losowe w symulatorze, a i-ty element $v_i$ zaburzenie i-tego rodzaju. Funkcja celu f w zadaniu optymalizacji \eqref{eq:313-1} przyjmuje wówczas postać wartości oczekiwanej
+funkcji zależnej od V, czyli:
+\begin{equation}
+    \label{eq:313-2}
+    \min_x \left[f(x) = E\left\{ q(x,V) = J(x,\tilde{S}(x,V))\right\}\right],\;x\in D_x
+\end{equation}
+gdzie q oznacza funkcję oceniającą działanie systemu na podstawie jednokrotnego przebiegu symulacji $\tilde{S}$. Ze względu na występowanie efektów losowych jest to zakłócony pomiar wskaźnika f. Zmienne wejściowe x mogą w różny sposób wpływać na wyniki działania symulatora $\tilde{S}$:
+\begin{enumerate}
+    \item Zmienne wejściowe x są tzw. „parametrami strukturalnymi”. Wpływają one bezpośrednio na wyniki działania symulatora. Zmienne losowe $v_i$ nie zależą od zmiennych wejściowych x. Gęstość prawdopodobieństwa V oznaczymy przez p(v).
+    \item Zmienne x są parametrami rozkładu zakłóceń losowych. W tej sytuacji $v_i$ zależą od zmiennych wejściowych x i oznaczamy gęstość prawdopodobieństwa V przez p(v|x).
+\end{enumerate}
+
+Zadania optymalizacji \eqref{eq:313-1} i \eqref{eq:313-2} są nieliniowe, a często niewypukłe. Zazwyczaj są to zadania o znacznej liczbie optymalizowanych zmiennych i ograniczeń. Dodatkowo, często występują w nich ograniczenia na zmienne zależne y, stanowiące wynik działania symulatora. Ograniczenia te są sprawdzane wewnątrz symulatora i ich jawna postać jest nieznana. Utrudnia to wyznaczenie zbioru dopuszczalnego $D_x$, który może być niewypukły, a nawet niespójny. Wymienione własności zadań ograniczają listę metod numerycznych, które znajdują zastosowanie w tego typu problemach. Metody te muszą spełniać szereg kryteriów. Jednym z najważniejszych jest odporność algorytmu.
+
+\textbf{Metody obliczeniowe} - w kolejnych punktach
+zostaną krótko omówione wymienione techniki do rozwiązywania zadań
+symulacja-optymalizacja:
+\begin{description}
+    \item[Aproksymacja stochastyczna] - W wielu zadaniach sterowania wymagających rozwiązania problemu \eqref{eq:313-2} nie jesteśmy w stanie wyznaczyć wartości wskaźnika oceniającego f, gdyż nie znamy rozkładu prawdopodobieństwa V . Możemy natomiast obliczyć wartości wyjść symulatora, a więc i wskaźnik q w \eqref{eq:313-2} jako rezultat realizacji wyznaczonych przez algorytm numeryczny sterowań. Przyjmując założenie, że funkcje $\tilde{S}$ i q są wypukłe i różniczkowalne względem x dla wszystkich V, możemy obliczyć pochodne cząstkowe. Wektor pochodnych cząstkowych, $\Delta q = \frac{\partial q}{\partial x}$, jest nazywany gradientem stochastycznym ponieważ zależy on od losowych zaburzeń V. Zakładając, że możliwe jest wyznaczenie gradientu, zadanie optymalizacji \eqref{eq:313-2} można rozwiązać stosując algorytm aproksymacji stochastycznej SA. W zadaniach praktycznych metody te są trudne do realizacji. Wymagają wnikania w oprogramowanie realizujące model symulacyjny, tak aby symulator wyznaczał zarówno wartości funkcji odpowiedzi q(x,V), jak i jej pochodne cząstkowe $\frac{\partial q(x,V)}{\partial x}$.
+    \item[Metody różnicowe liczenia gradientów (Metoda z ustalonym zestawem próbek)] - W przypadku wielu problemów praktycznych niemożliwe jest modyfikowanie kodu symulatora w celu wyznaczenia gradientu stochastycznego. W takiej sytuacji wyznacza się estymatę gradientu odpowiedzi układu, bazując na wielokrotnych zakłóconych pomiarach funkcji odpowiedzi q. Metoda wykorzystująca ustalony zestaw próbek jest deterministycznym odpowiednikiem aproksymacji stochastycznej. Wyniki eksperymentów symulacyjnych wykonanych dla stosunkowo małej, założonej liczby niezależnych realizacji V , tj. $V_1, V_2, ..., V_M$ służą do wyznaczenia aproksymacji $\hat{f}$ funkcji celu f. Zadanie optymalizacji stochastycznej \eqref{eq:313-2} jest zastępowane zadaniem deterministycznym. Sytuacja komplikuje się, gdy V zależy od x. Oznacza to, że dla każdego x powinien być wyznaczany nowy wektor Vi. Realizowana w ten sposób estymacja funkcji $\hat{f}(x)$ wymagałaby wykonania ogromnej liczby eksperymentów. W tym przypadku proponuje się następujące rozwiązanie. Przyjmijmy, że istnieje taka wartość $x' \in D_x$, że dla wszystkich $x\in D_x$ i $v\in D_v$ spełnienie warunku p(v|x') = 0 implikuje spełnienie warunku p(v|x') = 0.
+    \item[Metoda powierzchni odpowiedzi] - Metoda powierzchni odpowiedzi RSM (Response Surface Methodology) jest sekwencyjną strategią bazującą na lokalnej aproksymacji powierzchni odpowiedzi symulatora w otoczeniu $D_x^{(k)}$ aktualnego punktu $x^{(k)}$. W kolejnych krokach metody wyznaczana jest funkcja sparametryzowana $F(x,\alpha)$ przybliżająca wskaźnik f(x) w zadaniu minimalizacji \eqref{eq:313-2}, gdzie wektor parametrów $\alpha$ jest wyznaczany na podstawie wyników symulacji. Kroki:\mbox{}
+    \begin{enumerate}
+        \item Wybierz zestaw wejść symulatora x i wykonaj M symulacji. Wyznacz wektor parametrów $\alpha^{(k)}$ minimalizujący błąd lokalnej aproksymacji $F(x,\alpha)$.
+        \item Wyznacz $x^B = arg \min_x F(x,\alpha^{(k)})$.
+        \item Wyznacz odpowiedź symulatora dla $x^B$ i oszacuj $\hat{f}(x^B)$. Jeżeli jest ono mniejsze od $\hat{f}(x^{(k)}$ wówczas k=k+1 i $x^{(k)} = x^B$. W przeciwnym wypadku zmniejsz rozmiar otoczenia $D_x^{(k)}$ lub zmodyfikuj F. Powróć do pkt 2.
+    \end{enumerate}
+    \item[Metody poszukiwań prostych] - Skoncentrujemy się teraz na prostych technikach, w których rozwiązuje się zadanie optymalizacji korzystając jedynie z informacji o aktualnej wartości wskaźnika jakości. Są to podejścia zalecane w przypadku problemów niegładkich. Niektóre z nich można stosować do zadań dyskretnych. Kierunki poszukiwań mogą być wyznaczane w sposób zdeterminowany lub losowy.\mbox{}
+    \begin{description}
+        \item[Metody deterministyczne] to klasyczne, opisane w wielu podręcznikach, rozwiązania dla zadań bez ograniczeń. Algorytmy te dość wolno zbiegają do rozwiązania, szczególnie gdy rozważamy zadanie o dużym wymiarze. Dla większości z nich nie przedstawiono dowodów zbieżności w skończonej liczbie iteracji. Mogą być stosowane w przypadkach, gdy dysponujemy zakłóconym pomiarem funkcji celu, ale wymaga to zazwyczaj wprowadzenia pewnych modyfikacji. Polegają one głównie na wyznaczaniu w każdym kroku wartości średniej wskaźnika oraz zmianie kryterium zatrzymania algorytmu.
+        \item[Metody stochastyczne] to techniki zalecane w zadaniach, w których funkcja celu lub zbiór rozwiązań dopuszczalnych są niewypukłe. Jest to szeroka klasa problemów, które nie mogą być skutecznie rozwiązywane za pomocą powszechnie znanych i sprawdzonych metod poszukiwania lokalnego. Brak gwarancji wypukłości charakteryzuje znaczną część zadań, w których stosuje się podejście symulacja-optymalizacja. W przypadku ogólnym nie można podać efektywnej metody rozwiązania problemu optymalizacji globalnej.
+        
+        Punktem wyjścia do prostych technik stosujących poszukiwanie losowe jest metoda Monte-Carlo, zwana także metodą prostych poszukiwań losowych. Polega ona na losowaniu z rozkładem równomiernym punktów ze zbioru dopuszczalnego, wykonaniu eksperymentu symulacyjnego w celu wyznaczenia estymaty funkcji oceniającej i przyjmowaniu aktualnie najlepszej wartości $\hat{f}$ jako oszacowania optimum. Zamiast generatorów losowych można zastosować sekwencje losowe. Przeszukiwanie otoczenia aktualnego punktu może być również realizowane za pomocą wymienionych wcześniej technik deterministycznych. W przypadku ogólnym, gdy pomiar jest zakłócony, zbieżność nie jest gwarantowana. W takich sytuacjach proponuje się wykonanie wielokrotnych pomiarów i wyznaczenie wartości średniej. Innym rozwiązaniem jest próba uodpornienia procesu decyzyjnego na zakłócenia.
+        \item[CRS] to proste rozwiązania stanowiące połączenie techniki losowania zbioru punktów i deterministycznych metod operujących na tym zbiorze. Zasada działania jest następująca. Losowany jest zbiór początkowy punktów P, dla których wykonywane są eksperymenty symulacyjne, wyznaczane są wartości estymat wskaźników jakości $\hat{f}(x_i)$, $i=1,...,N_P$, gdzie $N_P$ oznacza liczność zbioru. Wybierane są dwa punkty $x_l = arg \min_{x\in P} \hat{f}(x)$ oraz $x_h = arg \max_{x\in P} \hat{f}(x)$. Zbiór P, w miarę upływu czasu, podlega przekształceniom. Są różne metody tego przekształcenia: CRS1, CRS2, ... A każda następnie posiada swój sposób wyznaczenia nowego punktu. Np. w CRSI jest to interpolacja kwadratowa, podczas gdy w CRS1-5 wykorzystywane są techniki sympleksowe, w których wynik zastępuje w zbiorze P punkt $x_h$. Algorytmy CRS można w łatwy sposób realizować w wersji równoległej. Najefektywniejszym sposobem zrównoleglenia CRS jest uruchomienie niezależnych instancji programu na różnych procesorach. Wykorzystuje się tu strukturę gwiazdy. Poszczególne procesy, po wykonaniu obliczeń dla swoich zbiorów punktów Pp (p – liczba procesorów), przekazują wyniki do wybranego procesu, który wybiera rozwiązanie najlepsze.
+    \end{description}
+    \item[Metody wykorzystujące heurystyki i metaheurystyki] - W ostatnich kilkudziesięciu latach opracowano różne metody heurystycznego poszukiwania optymalnych rozwiązań, często inspirowane procesami fizycznymi, chemicznymi czy biologicznymi. Należą do nich strategie deterministyczne oraz niedeterministyczne.\mbox{}
+    \begin{description}
+        \item[Tabu TS] to deterministyczna strategia z pamięcią. Polega ona na eksploracji przestrzeni, stworzonej ze wszystkich możliwych rozwiązań, za pomocą pewnej sekwencji ruchów. W celu uniknięcia niebezpieczeństwa wielokrotnego powracania do tego samego rozwiązania pewne ruchy są kwalifikowane jako niedozwolone – ruchy tabu. Zastosowane reguły klasyfikujące ruch bazują na krótkoterminowej bądź długoterminowej historii sekwencji ruchów. Tak np. można uznać za niedozwolony (tabu) ruch, jeżeli ruch do niego przeciwny został wykonany ostatnio lub był często wykonywany. Czasami, jeśli jest to korzystne, niektóre ruchy tabu są unieważniane. Długa lista tabu wymaga znacznych zasobów pamięci i wydłuża czas obliczeń związany z koniecznością jej przeglądania. Aby się przed tym zabezpieczyć tabu jest zazwyczaj realizowane w postaci cyklicznego bufora.
+        \item[SAN] należy do grupy tzw. metod błądzących, których działanie polega na symulowaniu losowo zakłócanego ruchu obiektu dynamicznego. Podczas poszukiwania minimum algorytm akceptuje nie tylko zmiany, które prowadzą do zmniejszenia wartości aproksymowanego wskaźnika jakości $\hat{f}$, ale również zmiany prowadzące do zwiększenia $\hat{f}$. Akceptowanie zmian, prowadzących do zwiększenia wartości funkcji celu, odbywa się oczywiście w sposób kontrolowany, za pomocą losowego kryterium akceptacji takich zmian. Rozwiązania lepsze są zawsze akceptowane. Akceptacja rozwiązań gorszych zależy od wartości wyrażenia reguły Metropolisa i prawdopodobieństwo akceptacji maleje wraz ze zmniejszaniem się parametru T. Algorytm wymaga określenia początkowej wartości parametru T (analog temperatury), funkcji opisującej schemat jego zmniejszania (tzw. schemat wyżarzania) oraz mechanizmu generowania kolejnych punktów.
+        
+        Do generacji punktów w kolejnych krokach algorytmu stosuje się najczęściej losowanie z rozkładem jednostajnym.
+        \item[Algorytmy ewolucyjne] to odporne, proste heurystyki populacyjne, które często znajdują zastosowanie w przypadku, gdy wskaźnik jakości jest wyznaczany na podstawie symulacji. Pomysł technik ewolucyjnych pochodzi z symulacji procesu ewolucji żywych organizmów. Stan algorytmu opisuje zbiór odpowiednio zakodowanych łańcuchów (binarnie bądź rzeczywistoliczbowo), będących analogiem kodów genetycznych (chromosomów). Do każdego łańcucha jest przypisana miara przystosowania, w przypadku rozważanych przez nas zadań może to być wskaźnik jakości. Multizbiór łańcuchów (populacja) jest losowo wybierany z przestrzeni poszukiwań i poprzez mechanizmy wyboru, mutacji i (czasami) rekombinacji ewoluuje w kierunku minimum globalnego funkcji celu. W ten sposób uzyskujemy algorytm optymalizacji.
+        
+        Algorytmy ewolucyjne można w sposób naturalny zrównoleglić. Najprostszym podejściem jest wariant synchroniczny, w którym operuje się na jednej wspólnej populacji (algorytm bez podziału dziedziny).
+        
+        Bardziej efektywny wydaje się być wariant asynchroniczny algorytmu (z podziałem dziedziny), gdzie wiele procesów wykonuje autonomicznie operacje genetyczne dla rozproszonej populacji i komunikuje się między sobą w celu wymiany informacji (np. części osobników). Takie algorytmy nazywamy podpopulacyjnymi.
+        
+        \textbf{Metody genetyczne algorytmu:}\mbox{}
+        \begin{description}
+            \item[inicjacja] – wylosowanie początkowej populacji punktów]
+            \item[selekcja] – kopiowanie z poprzedniej populacji do nowej przy założeniu, że prawdopodobieństwo wyboru osobników o większej mierze przystosowania jest większe]
+            \item[krzyżowanie] – losowe skojarzenie w pary ciągów z populacji rodziców i wymiana między nimi części łańcucha kodującego zmienne zadania]
+            \item[mutacja] – losowa zmiana jednego znaku ciągu z populacji (np. odwrócenie bitu)]
+        \end{description}
+    \end{description}
+    \item[Metody hybrydowe] - Podejście to jest powszechnie stosowane w przypadku metod poszukiwania ekstremum globalnego, gdy w końcowej fazie procesu optymalizacji uruchamiany jest wybrany algorytm lokalny, tzw. metody dwufazowe. Powstają algorytmy, które łączą w sobie rozwiązania proponowane w różnych metodach, np. sympleks nieliniowy i symulowane wyżarzanie, czy sympleks nieliniowy i algorytm genetyczny. Najczęściej stosuje się jednak przełączanie między kilkoma algorytmami. Są one dobierane i aktywowane według reguł formułowanych na podstawie wiedzy o problemie, dotychczasowych wyników obliczeń, podatności metod na doraźne adaptacje, wymagań co do dokładności rozwiązania, dopuszczalnego czasu obliczeń oraz dostępnych mocy obliczeniowych.
+obliczeniowych.
+\end{description}
+
+\section{\sout{ROSM}}
+-
+
+\section{\sout{SAU}}
+-
+
+\section{\sout{SZAU}}
+-
